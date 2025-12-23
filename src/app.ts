@@ -1,19 +1,29 @@
 import "dotenv/config";
-import express from "express";
-import Login from "./controller/login"
+import express, { type Application } from "express";
+import { routes } from "./routes/routes";
 
-//@ts-ignore
-import authMiddleware from "../src/middleware/authMiddleware"
-// import authRoutes from "../src/routes/auth.routes.js"
+class App {
 
-const app = express();
-app.use(express.json());
+  private app: Application
 
-app.post("/login",  Login.login);
-// app.post("/auth", authRoutes);
+  constructor() {
+    this.app = express()
+    this.config()
+    this.routes()
+  }
 
-app.listen(3000, () => {
-  console.log("Servidor rodando na porta 3000");
-});
+  config():void {
+    this.app.use(express.json())
+    this.app.use(express.urlencoded({extended: true}))
+  }
 
-export default app;
+  routes():void {
+    this.app.use(routes)
+  }
+
+  listen(port: number):void {
+    this.app.listen(port, ()=> console.log(`Servidor rodando na porta: http://localhost:${port}`))
+  }
+}
+
+export default new App

@@ -17,8 +17,8 @@ module.exports = (req:Request, res:Response, next:any) => {
   }
 
   if(!KEY_TOKEN) {
-      throw new Error ("SECRET_TOKEN não encontrado")
-    }
+    throw new Error ("SECRET_TOKEN não encontrado")
+  }
 
   jwt.verify(token, KEY_TOKEN, (err:any, decoded:any) => {
     if (err)
