@@ -6,13 +6,14 @@ class Cadastro {
 
         const {email, senha, nome} = req.body;
 
-        const userIds = user.map(user => user)
-        const idUsers = userIds[userIds.length - 1]
-        const [usuario] = user.filter(val => val.email == email)
+        const [usuario] = user.filter(val => val.email == email || val.senha == senha)
 
-        if(usuario?.email == email || usuario?.senha == senha){
+        if(usuario?.email || usuario?.senha){
             return res.status(409).json({Mensagem:"Usuário já cadastrado"})
         }
+
+        const userIds = user.map(user => user)
+        const idUsers = userIds[userIds.length - 1]
 
         user.push(
            {
@@ -23,7 +24,6 @@ class Cadastro {
             }
         )
 
-        console.log("id do usuario: ", user)
         return res.status(201).json({Mensagem:"Usuario Cadastrado"})
     }
 }
