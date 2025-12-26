@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken"
 import type { Request, Response } from "express"
+import jwt from "jsonwebtoken"
 import user from "../mockdata/data"
 
 const KEY_TOKEN = process.env.SECRET_TOKEN
@@ -7,7 +7,6 @@ const KEY_TOKEN = process.env.SECRET_TOKEN
 class Login {
   login(req:Request, res:Response) {
 
-    console.log("teste", req.body)
     const {email, senha} = req.body 
     const [usuario] = user.filter(user => user.email == email)
 
