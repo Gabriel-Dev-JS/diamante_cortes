@@ -14,7 +14,5 @@ describe("Cadastro", ()=> {
         const response = await request(app).post("/cadastrarUsuario").send(usuario)
 
         expect(response.statusCode).toEqual(201)
-
-
     })
 })

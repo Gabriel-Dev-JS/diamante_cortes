@@ -42,7 +42,7 @@ class ControllerCadastroUsuario {
         const createUser = new CreateUserUseCase()
         try{
             const response = await createUser.cadastrarUsuario(req.body)
-            return res.status(200).json({"OK": response})
+            return res.status(201).json({"OK": response})
             // const response = this.CreateUSerUseCase.cadastrarUsuario(req.body)
         }catch(err:any){
             console.error("Erro")
