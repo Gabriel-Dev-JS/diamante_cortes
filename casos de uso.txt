@@ -11,7 +11,7 @@ Resposta curta:
 Agora vamos deixar isso bem claro, com comparação direta.
 
 📌 Diferença principal
-	Controller	Caso de Uso (Use Case)
+Controller	Caso de Uso (Use Case)
 Responsabilidade	Lidar com a entrada/saída	Executar regra de negócio
 Conhece HTTP?	✅ Sim	❌ Não
 Valida regras?	❌ Pouco	✅ Sim
@@ -121,3 +121,162 @@ Se quiser, posso te mostrar:
 🧱 Como isso fica em NestJS
 
 📐 Diagrama explicando o fluxo
+
+
+
+
+
+Casos de uso fazem parte principalmente da Clean Architecture e são muito usados no DDD.
+Eles NÃO fazem parte do SOLID (diretamente).
+
+Agora vamos separar direitinho 👇
+
+🧱 Clean Architecture (onde o Use Case nasce)
+
+Na Clean Architecture (Robert C. Martin):
+
+Use Cases são uma camada oficial
+
+Eles ficam entre:
+
+Entities (regras mais gerais)
+
+Interfaces externas (controllers, banco, UI)
+
+Camadas:
+Controller / API
+       ↓
+Use Cases  ← 👈 aqui
+       ↓
+Entities
+
+
+👉 Aqui o Use Case é obrigatório e central.
+
+🧠 DDD (onde o Use Case é usado)
+
+No Domain-Driven Design:
+
+O foco é o Domínio
+
+Use Cases aparecem como:
+
+Application Services
+
+Domain Services (em alguns casos)
+
+Eles:
+
+Orquestram entidades e agregados
+
+Chamam repositórios
+
+Executam regras de negócio
+
+📌 DDD não obriga o termo “Use Case”, mas o conceito existe.
+
+🧪 SOLID (não é uma arquitetura)
+
+SOLID não define camadas nem Use Cases.
+
+É um conjunto de princípios de design:
+
+S — Single Responsibility
+
+O — Open/Closed
+
+L — Liskov
+
+I — Interface Segregation
+
+D — Dependency Inversion
+
+👉 Use Cases aplicam SOLID, mas não pertencem ao SOLID.
+
+📊 Comparação direta
+Conceito	Use Case pertence?	Papel
+Clean Architecture	✅ Sim	Camada central
+DDD	✅ Sim (conceitualmente)	Serviço de aplicação
+SOLID	❌ Não	Princípios de design
+🔁 Como tudo se conecta (visão madura)
+
+DDD define o que é o negócio
+Clean Architecture define onde cada coisa fica
+SOLID define como o código deve ser escrito
+
+E o Use Case fica bem no meio disso tudo.
+
+🧩 Exemplo mental
+DDD → "Criar Pedido é um processo do domínio"
+Clean → "CriarPedidoUseCase fica na camada de aplicação"
+SOLID → "Esse Use Case deve ter uma única responsabilidade"
+
+✅ Resumo final (pra nunca esquecer)
+
+✔ Use Case = Clean Architecture
+
+✔ Use Case = Application Service no DDD
+
+❌ Use Case ≠ SOLID
+
+✔ SOLID ajuda a escrever bons Use Cases
+
+
+
+🧠 Visão generalista (correta)
+🧩 DDD — entender o negócio
+
+O que o sistema faz e por quê
+
+Linguagem do negócio (Ubiquitous Language)
+
+Regras, processos, exceções
+
+Entidades, agregados, eventos
+
+Conversa com especialistas do domínio
+
+📌 DDD responde:
+👉 “Como esse negócio realmente funciona?”
+
+🏗 Clean Architecture — organizar o sistema
+
+Onde cada coisa fica
+
+Camadas bem definidas
+
+Dependências apontam para o domínio
+
+Separação entre regras e infraestrutura
+
+Independência de framework
+
+📌 Clean responde:
+👉 “Como organizo o código para não virar bagunça?”
+
+🧪 SOLID — escrever bom código
+
+Como escrever classes e funções
+
+Responsabilidades bem definidas
+
+Código extensível
+
+Baixo acoplamento
+
+Alta coesão
+
+📌 SOLID responde:
+👉 “Como escrevo código que não quebra fácil?”
+
+📊 Tabela-resumo (para fixar)
+Conceito	Nível	Pergunta que responde
+DDD	Negócio	O que o sistema faz?
+Clean Architecture	Estrutura	Onde cada coisa fica?
+SOLID	Código	Como escrever o código?
+
+DDD       → define o domínio
+Clean     → organiza o domínio no projeto
+SOLID     → guia a escrita do código
+
+“DDD ajuda a entender e modelar o negócio, Clean Architecture organiza as responsabilidades e dependências do sistema, e SOLID orienta a escrita de código limpo e flexível.”
