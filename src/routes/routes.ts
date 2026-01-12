@@ -1,16 +1,16 @@
 import { Router, type Request, type Response } from "express"
 // import cadastro from "../controller/cadastro"
-import Login from "../controller/login"
+import { ControllerCadastroUsuario } from "../controller/cadastro"
+import ControllerLogin from "../controller/login"
 //@ts-ignore
 import authMiddleware from "../middleware/authMiddleware"
-import {ControllerCadastroUsuario} from "../controller/cadastro"
 // import ControllerCadastroUsuario from "../controller/cadastro"
 
 const controllerCadastro = new ControllerCadastroUsuario()
 
 const routes = Router()
 
-routes.post('/login', Login.login)
+routes.post('/login', ControllerLogin.login)
 routes.post('/cadastrarUsuario', controllerCadastro.cadastrarUser)
 // routes.post('/cadastrarUsuario', cadastro.cadastrarUsuario)
 

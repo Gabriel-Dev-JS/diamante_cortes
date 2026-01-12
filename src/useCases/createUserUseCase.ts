@@ -1,6 +1,6 @@
 import user from "../mockdata/data";
 
-interface PropsBody{
+export interface PropsBody{
   email: string;
   senha: string;
   nome: string
@@ -32,4 +32,4 @@ class CreateUserUseCase {
 }
 
 // export default new CreateUserUseCase;
-export {CreateUserUseCase};
+export { CreateUserUseCase };

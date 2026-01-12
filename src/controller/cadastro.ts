@@ -32,8 +32,8 @@
 
 
 // import createUserUseCase, { CreateUserUseCase } from "../useCases/createUserUseCase";
-import { CreateUserUseCase } from "../useCases/createUserUseCase";
 import { type Request, type Response } from "express";
+import { CreateUserUseCase } from "../useCases/createUserUseCase";
 
 class ControllerCadastroUsuario {
     // constructor(){}
@@ -46,10 +46,11 @@ class ControllerCadastroUsuario {
             // const response = this.CreateUSerUseCase.cadastrarUsuario(req.body)
         }catch(err:any){
             console.error("Erro")
-            res.status(401).json({"Erro ao criar usuario": err})
+            res.status(401).json({"Usuario já existe no sistema": err})
         }
     }
 
 }
 
-export {ControllerCadastroUsuario};
+export { ControllerCadastroUsuario };
+

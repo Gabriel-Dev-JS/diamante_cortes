@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 import request from "supertest";
-import { App } from "../app";
+import { App } from "../../app";
 
 describe("Cadastro", ()=> {
     it("cadastrar novo usuario", async ()=> {
