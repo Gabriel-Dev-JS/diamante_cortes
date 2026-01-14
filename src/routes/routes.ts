@@ -7,11 +7,10 @@ import authMiddleware from "../middleware/authMiddleware"
 // import ControllerCadastroUsuario from "../controller/cadastro"
 
 const controllerCadastro = new ControllerCadastroUsuario()
-
 const routes = Router()
 
-routes.post('/login', ControllerLogin.login)
 routes.post('/cadastrarUsuario', controllerCadastro.cadastrarUser)
+routes.post('/login', ControllerLogin.login)
 // routes.post('/cadastrarUsuario', cadastro.cadastrarUsuario)
 
 routes.get('/', (req:Request, res:Response)=> {
