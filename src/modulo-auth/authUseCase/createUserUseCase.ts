@@ -1,4 +1,4 @@
-import user from "../mockdata/data";
+import user from "../../mockdata/data";
 
 export interface PropsBody{
   email: string;
@@ -9,7 +9,7 @@ export interface PropsBody{
 class CreateUserUseCase {
   cadastrarUsuario(data:PropsBody) {
     const [usuario] = user.filter(val => val.email == data?.email || val.senha == data?.senha)
-    console.log("usuario: ", usuario)
+
     if(usuario?.email || usuario?.senha){
       throw new Error()
     }
@@ -26,7 +26,6 @@ class CreateUserUseCase {
         }
     )
 
-    console.log("users: ", users)
     return users
   }
 }

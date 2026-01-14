@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { LoginUserUseCase } from "../useCases/loginUser";
+import { LoginUserUseCase } from "../../modulo-auth/authUseCase/loginUserUseCase";
 
 class ControllerLogin {
   async login(req:Request, res:Response) {

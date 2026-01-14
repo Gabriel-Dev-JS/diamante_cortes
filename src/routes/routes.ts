@@ -1,7 +1,7 @@
 import { Router, type Request, type Response } from "express"
 // import cadastro from "../controller/cadastro"
-import { ControllerCadastroUsuario } from "../controller/cadastro"
-import ControllerLogin from "../controller/login"
+import { ControllerCadastroUsuario } from "../modulo-auth/authController/cadastroController"
+import ControllerLogin from "../modulo-auth/authController/loginController"
 //@ts-ignore
 import authMiddleware from "../middleware/authMiddleware"
 // import ControllerCadastroUsuario from "../controller/cadastro"
